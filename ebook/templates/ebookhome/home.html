@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>sor page</title>
+    <link rel="stylesheet" href="{% static 'ebookhome/assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'ebookhome/assets/fonts/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="{% static 'ebookhome/assets/css/Masonry-gallery-cards-responsive.css'%}">
+    <link rel="stylesheet" href="{% static 'ebookhome/assets/css/Perfect-navigation-bar.css'%}">
+    <link rel="stylesheet" href="{% static 'ebookhome/assets/css/styles.css'%}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top shadow-lg" style="color: rgb(255,255,255);background-color: rgb(255,255,255);opacity: 1;">
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: rgb(255,255,255);color: #ffffff;"><span class="sr-only" style="background-color: rgb(156,156,156);">Toggle navigation</span><span class="navbar-toggler-icon" style="background-color: rgb(255,255,255);color: rgb(255,255,255);background-image: url(&quot;{% static 'ebookhome/assets/img/604152-200.png'%}&quot;);"></span></button><a href="home.html"><img src="{% static 'ebookhome/assets/img/logo.png'%}" style="width: 60px;" /></a>
+            <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);background-color: rgb(255,255,255);">
+                <ul class="navbar-nav flex-grow-1 justify-content-between" style="color: rgb(156,156,156);">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link scroll" data-bss-hover-animate="pulse" style="font-family: ABeeZee, sans-serif;color: #000000;background-color: rgb(255,255,255);font-size: 20px;" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bss-hover-animate="pulse" style="font-family: ABeeZee, sans-serif;color: #ff5c5c;background-color: #ffffff;font-size: 20px;" href="{% url 'logout' %}"><i class="fa fa-user" style="color: #ff5c5c;"></i>&nbsp;LOGOUT</a></li>
+                    <li class="nav-item"><a class="nav-link active"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 54px;">
+
+        <div>
+            <div class="row" data-masonry="{&quot;percentPosition&quot;: true }">
+                {% for book in books %}
+                <div class="col-sm-6 col-lg-4 mb-4">
+
+                    <div class="card">
+                        <picture type="" srcset=""><img class="card-img-top p-3" src="{{book.image.url}}" alt="" style="border-radius: 24px; object-fit: cover; height:100;width:100"></picture>
+                        <div class="card-body">
+                            <h5 class="card-title">{{book.name}}<br></h5>
+                            <p class="card-text text-muted">{{book.description}}<br></p><a href="{{book.bookpdf.url}}">Read this book></a>
+                        </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+
+
+
+
+
+
+
+            </div>
+
+            <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
+        </div>
+    </div>
+    <script src="{% static 'ebookhome/assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'ebookhome/assets/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'ebookhome/assets/js/bs-init.js'%}"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="{% static 'ebookloginsignup/assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'ebookloginsignup/assets/css/login-form-1.css'%}">
+    <link rel="stylesheet" href="{% static 'ebookloginsignup/assets/css/login-form.css'%}">
+    <link rel="stylesheet" href="{% static 'ebookloginsignup/assets/css/Registration-Form-with-Photo.css'%}">
+    <link rel="stylesheet" href="{% static 'ebookloginsignup/assets/css/styles.css'%}">
+</head>
+
+<body style="background: url(&quot;https://i.pinimg.com/originals/0e/86/d4/0e86d44157f2bfee461ce3d23f46d0fd.jpg&quot;), rgb(255, 255, 255);">
+    <div class="container full-height">
+        <div class="row flex center v-center full-height">
+            <div class="col-8 col-sm-4">
+                <div class="form-box" style="background: #ffffff;">
+                    <form action="" method="post">{% csrf_token %}
+                        <fieldset>
+                            <legend>Sign in</legend><img id="avatar" class="avatar round" src="{% static 'ebookloginsignup/assets/img/avatar.png'%}">
+                            <input class="form-control" type="text" id="username" name="username" placeholder="username">
+                            <input class="form-control" type="password" id="password" name="password" placeholder="password">
+                            <button class="btn btn-primary btn-block" type="submit">LOGIN </button>
+                        </fieldset><a href="{% url 'signup' %}">Don't have an account?signup</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'ebookloginsignup/assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'ebookloginsignup/assets/bootstrap/js/bootstrap.min.js'%}"></script>
+</body>
+
+</html>
